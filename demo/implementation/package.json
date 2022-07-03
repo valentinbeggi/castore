@@ -19,6 +19,7 @@
     "test-unit": "jest --maxWorkers=4 --passWithNoTests"
   },
   "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.121.0",
     "@castore/demo-blueprint": "^0.3.91",
     "@castore/dynamodb-event-storage-adapter": "workspace:^",
     "@castore/event-store": "^0.3.91",
