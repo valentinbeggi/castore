@@ -1,6 +1,6 @@
 {
   "name": "@castore/demo-implementation",
-  "version": "0.3.91",
+  "version": "0.3.92",
   "license": "UNLICENSED",
   "sideEffects": false,
   "scripts": {
@@ -18,9 +18,9 @@
     "test-unit": "jest --maxWorkers=4 --passWithNoTests"
   },
   "dependencies": {
-    "@castore/demo-blueprint": "^0.3.91",
+    "@castore/demo-blueprint": "^0.3.92",
     "@castore/dynamodb-event-storage-adapter": "^0.3.91",
-    "@castore/event-store": "^0.3.91",
+    "@castore/event-store": "^0.3.92",
     "@middy/core": "^3.0.4",
     "@middy/validator": "^3.0.4",
     "source-map-support": "^0.5.19"
@@ -39,5 +39,6 @@
     "serverless": "^3.1.0",
     "serverless-esbuild": "^1.23.4",
     "typescript": "^4.6.3"
-  }
+  },
+  "gitHead": "416c63e3df9cb5e26db86aeaf793693c0e8dac28"
 }
