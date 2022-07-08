@@ -17,11 +17,16 @@ jobs:
         run: |
           git config --global user.email "ci@octokit.com"
           git config --global user.name "@$GITHUB_ACTOR"
-      - name: Setup tmate session
-        uses: mxschmitt/action-tmate@v3
-      - run: echo "${{ github.event.release.tag_name }}"
+          git stash
+          git push --delete origin v${{ github.event.release.tag_name }}
       - name: "update version"
         run: yarn lerna version ${{ github.event.release.tag_name }} --yes
+      - name: Configure Git User
+        run: |
+          export YARN_ENABLE_IMMUTABLE_INSTALLS=false
+          yarn
+          git commit --amend --no-edit
+          git push origin --force
       - uses: JS-DevTools/npm-publish@v1
         with:
           token: ${{ secrets.NPM_TOKEN }}
