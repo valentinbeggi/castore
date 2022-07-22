@@ -1,0 +1,32 @@
+name: 🚀 Release to NPM
+
+on:
+  release:
+    types: [published]
+jobs:
+  build:
+    name: release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: 'main'
+          token: ${{ secrets.PAT_TOKEN }}
+      - name: Configure Git User
+        run: |
+          git config --global user.email "ci@octokit.com"
+          git config --global user.name "$GITHUB_ACTOR"
+          git stash
+          git push --delete origin ${{ github.event.release.tag_name }}
+      - name: Update yarn.lock with new version
+        run: |
+          git commit --amend --no-edit
+          git push origin --force
+      - name: "call action"
+        id: last_release
+        uses: InsonusK/get-latest-release@v1.0.1
+        with:
+          myToken: ${{ secrets.GITHUB_TOKEN }}
+          view_top: 1
+      - run: |
+          curl -X PATCH -H 'Accept: application/vnd.github+json'  -H 'Authorization: token ${{ secrets.GITHUB_TOKEN }}' https://api.github.com/repos/valentinbeggi/castore/releases/${{ steps.last_release.outputs.id }} -d '{"draft":false}'

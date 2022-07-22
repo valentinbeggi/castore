@@ -1,0 +1,84 @@
+{
+  "settings": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true,
+      "source.fixAll.stylelint": true
+    },
+    "stylelint.validate": ["typescript", "typescriptreact"],
+    "stylelint.customSyntax": "@stylelint/postcss-css-in-js",
+    "search.exclude": {
+      "**/coverage": true,
+      "**/node_modules": true,
+      "**/.serverless": true,
+      "**/build": true,
+      "**/bundles": true,
+      "**/dist": true,
+      ".yarn": true,
+      "yarn.lock": true
+    },
+    "[dotenv][ignore][properties][shellscript]": {
+      "editor.defaultFormatter": "foxundermoon.shell-format"
+    },
+    "[html][javascript][json]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "typescript.tsdk": "node_modules/typescript/lib"
+  },
+  "extensions": {
+    "recommendations": [
+      "esbenp.prettier-vscode",
+      "dbaeumer.vscode-eslint",
+      "editorconfig.editorconfig",
+      "foxundermoon.shell-format",
+      "orta.vscode-jest",
+      "streetsidesoftware.code-spell-checker",
+      "streetsidesoftware.code-spell-checker-french",
+      "stylelint.vscode-stylelint",
+      "styled-components.vscode-styled-components"
+    ]
+  },
+  "folders": [
+    {
+      "path": "packages/core",
+      "name": "🫀  Core"
+    },
+    {
+      "path": "packages/dynamodb-event-storage-adapter",
+      "name": "🔌  DynamoDb"
+    },
+    {
+      "path": "packages/inmemory-event-storage-adapter",
+      "name": "🔌  InMemory"
+    },
+    {
+      "path": "packages/json-schema-event",
+      "name": "📬  Json Schema"
+    },
+    {
+      "path": "packages/zod-event",
+      "name": "📬  Zod"
+    },
+    {
+      "path": "packages/test-tools",
+      "name": "🔨 Test Tools"
+    },
+    {
+      "path": "demo/blueprint",
+      "name": "✨  Blueprint"
+    },
+    {
+      "path": "demo/implementation",
+      "name": "✨  Implementation"
+    },
+    {
+      "path": "demo/visualization",
+      "name": "✨  Visualization"
+    },
+    {
+      "path": ".",
+      "name": "🦫  Root"
+    }
+  ]
+}
